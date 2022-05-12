@@ -27,6 +27,6 @@ app.use("/players", async (req, res) => {
 
 mongoose.connect(process.env.MONGO_CONNECTION).then(() => {
   app.listen(port, () => {
-    console.log(`nationaltem API is listeing on ${port}`);
+    console.log(`nationalteam API is listeing on ${port}`);
   });
 });
