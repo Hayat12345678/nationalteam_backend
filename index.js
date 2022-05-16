@@ -7,17 +7,18 @@ const port = process.env.PORT;
 const app = express();
 app.use(cors());
 
-const playerSchema = new mongoose.Schema({
+const PlayerSchema = new mongoose.Schema({
   firstName: String,
   lastName: String,
   club: String,
   yearOfBirth: Number,
 });
-const Player = mongoose.model("Player", playerSchema, "players");
+const Player = mongoose.model("Player", PlayerSchema, "players");
 
 app.use("/players", async (req, res) => {
   try {
     const players = await Player.find().exec();
+    console.log(players);
     res.json(players);
   } catch (err) {
     console.log(err);
